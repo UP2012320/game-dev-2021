@@ -45,5 +45,17 @@ function updateStep() {
   step = Number.parseInt(scaleRange.value);
 }
 
+function leaders(max) {
+  if (max <= 0) {
+    return [];
+  }
+
+  const top10 = document.querySelectorAll('#top10 > li');
+
+  return [...top10]
+      .map(row => row.textContent)
+      .slice(0, max);
+}
+
 // Don't edit below this line
 window.addEventListener('load', init);
