@@ -4,8 +4,7 @@
 function init() {
   const nickInput = document.querySelector('#nick');
 
-  console.log(nickInput);
-  nickInput.addEventListener('o', nickChanged);
+  nickInput.addEventListener('input', nickChanged);
 }
 
 // Here you should add any other
@@ -17,6 +16,7 @@ function updateLeaderBoard(names, me) {
   top10.textContent = '';
 
   names.forEach((name, i) => {
+    // Don't add more than 10
     if (i >= 10) {
       return;
     }
@@ -33,7 +33,7 @@ function updateLeaderBoard(names, me) {
 }
 
 function nickChanged() {
-  const playerName = document.querySelector('#player > h1');
+  const playerName = document.querySelector('#playername');
   const nickInput = document.querySelector('#nick');
 
   playerName.textContent = nickInput.value;
