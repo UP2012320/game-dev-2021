@@ -39,5 +39,11 @@ function nickChanged() {
   playerName.textContent = nickInput.value;
 }
 
+function updateStep() {
+  const scaleRange = document.querySelector('#scalerange');
+
+  step = Number.parseInt(scaleRange.value);
+}
+
 // Don't edit below this line
 window.addEventListener('load', init);
