@@ -1,7 +1,12 @@
 'use strict';
 // If your solution needs to add any
 // listeners do so here
+
 function init() {
+  canvas.addEventListener('click', () => {
+    colourIndex = colourIndex === 3 ? 0 : colourIndex + 1;
+  });
+
   const nickInput = document.querySelector('#nick');
 
   nickInput.addEventListener('input', nickChanged);
@@ -9,6 +14,8 @@ function init() {
 
 // Here you should add any other
 // code, functions, etc.
+
+let colourIndex = 0;
 
 function updateLeaderBoard(names, me) {
   const top10 = document.querySelector('#top10');
@@ -68,7 +75,7 @@ drawUserPos = () => {
 drawPointerPos = () => {
   context.beginPath();
   context.lineWidth = 2;
-  context.fillStyle = colours[0];
+  context.fillStyle = colours[colourIndex];
   context.arc(halfWidth, halfHeight, step, 0, 2 * Math.PI);
   context.fill();
 };
