@@ -2,10 +2,11 @@
 // If your solution needs to add any
 // listeners do so here
 
+// !Magical global variables are fetched from lib.js!
+
 function init() {
-  canvas.addEventListener('click', () => {
-    colourIndex = colourIndex === colours.length - 1 ? 0 : colourIndex + 1;
-  });
+  // Only worry about clicks targeting the canvas
+  canvas.addEventListener('click', onColourChange);
 
   const nickInput = document.querySelector('#nick');
 
@@ -17,11 +18,17 @@ function init() {
 
 let colourIndex = 0;
 
+function onColourChange() {
+  colourIndex = colourIndex === colours.length - 1 ? 0 : colourIndex + 1;
+}
+
 function updateLeaderBoard(names, me) {
   const top10 = document.querySelector('#top10');
 
+  // Clear top10 element's children
   top10.textContent = '';
 
+  // Iterate over name and append an li for each one
   names.forEach((name, i) => {
     // Don't add more than 10
     if (i >= 10) {
@@ -31,6 +38,7 @@ function updateLeaderBoard(names, me) {
     const nameListItem = document.createElement('li');
     nameListItem.textContent = name;
 
+    // If name is current user add myself class
     if (name === me) {
       nameListItem.classList.add('myself');
     }
@@ -43,6 +51,7 @@ function nickChanged() {
   const playerName = document.querySelector('#playername');
   const nickInput = document.querySelector('#nick');
 
+  // Text entered in Input's is stored in value
   playerName.textContent = nickInput.value;
 }
 
@@ -53,6 +62,7 @@ function updateStep() {
 }
 
 function leaders(max) {
+  // Never know when a negative number might somehow appear
   if (max <= 0) {
     return [];
   }
@@ -69,6 +79,8 @@ drawUserPos = () => {
   context.beginPath();
   context.lineWidth = 2;
   context.strokeStyle = '#000';
+
+  // Use the same math that's used for the debug rendering
   context.arc(halfWidth + pointer.xOffset, halfHeight + pointer.yOffset, (pointer.radius / step) * 50, 0, 2 * Math.PI);
   context.stroke();
 };
