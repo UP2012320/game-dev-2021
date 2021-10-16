@@ -25,6 +25,7 @@ function onColourChange() {
 }
 
 // For test 1
+
 function updateLeaderBoard(names, me) {
   const top10 = document.querySelector('#top10');
 
@@ -51,6 +52,7 @@ function updateLeaderBoard(names, me) {
 }
 
 // For test 2
+
 function nickChanged() {
   const playerName = document.querySelector('#playername');
   const nickInput = document.querySelector('#nick');
@@ -60,6 +62,7 @@ function nickChanged() {
 }
 
 // For test 3
+
 function updateStep() {
   const scaleRange = document.querySelector('#scalerange');
 
@@ -67,6 +70,7 @@ function updateStep() {
 }
 
 // For test 4
+
 function leaders(max) {
   // Never know when a negative number might somehow appear
   if (max <= 0) {
