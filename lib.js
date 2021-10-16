@@ -94,20 +94,15 @@ function mouseMoved(e) {
   // TODO calulate angle and unit vector radius
   // based on mouse.xOffset and mouse.yOffset .
   pointer.radius =
-  Math.min(
-    Math.sqrt(
-      Math.pow(pointer.xOffset, 2) +
-      Math.pow(pointer.yOffset, 2)
-    ),
-    limitOfAcceleration,
-  ) / limitOfAcceleration * step;
+      Math.min(
+          Math.sqrt(
+              Math.pow(pointer.xOffset, 2) +
+              Math.pow(pointer.yOffset, 2)
+          ),
+          limitOfAcceleration,
+      ) / limitOfAcceleration * step;
 
   pointer.angle = Math.atan2(pointer.yOffset, pointer.xOffset).toFixed(3);
-  pointer.degrees = Math.abs(Math.round((pointer.angle * 180) / Math.PI));
-
-  if (pointer.degrees > 360) {
-    pointer.degrees = 0;
-  }
 
   redraw();
 }

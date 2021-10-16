@@ -57,5 +57,21 @@ function leaders(max) {
       .slice(0, max);
 }
 
+drawUserPos = () => {
+  context.beginPath();
+  context.lineWidth = 2;
+  context.strokeStyle = '#000';
+  context.arc(halfWidth + pointer.xOffset, halfHeight + pointer.yOffset, (pointer.radius / step) * 50, 0, 2 * Math.PI);
+  context.stroke();
+};
+
+drawPointerPos = () => {
+  context.beginPath();
+  context.lineWidth = 2;
+  context.fillStyle = colours[0];
+  context.arc(halfWidth, halfHeight, step, 0, 2 * Math.PI);
+  context.fill();
+};
+
 // Don't edit below this line
 window.addEventListener('load', init);
