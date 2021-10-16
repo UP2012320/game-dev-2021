@@ -16,12 +16,15 @@ function init() {
 // Here you should add any other
 // code, functions, etc.
 
+// For test 7
+
 let colourIndex = 0;
 
 function onColourChange() {
   colourIndex = colourIndex === colours.length - 1 ? 0 : colourIndex + 1;
 }
 
+// For test 1
 function updateLeaderBoard(names, me) {
   const top10 = document.querySelector('#top10');
 
@@ -47,6 +50,7 @@ function updateLeaderBoard(names, me) {
   });
 }
 
+// For test 2
 function nickChanged() {
   const playerName = document.querySelector('#playername');
   const nickInput = document.querySelector('#nick');
@@ -55,12 +59,14 @@ function nickChanged() {
   playerName.textContent = nickInput.value;
 }
 
+// For test 3
 function updateStep() {
   const scaleRange = document.querySelector('#scalerange');
 
   step = Number.parseInt(scaleRange.value);
 }
 
+// For test 4
 function leaders(max) {
   // Never know when a negative number might somehow appear
   if (max <= 0) {
@@ -74,6 +80,8 @@ function leaders(max) {
       .map(row => row.textContent)
       .slice(0, max);
 }
+
+// For test 6
 
 drawUserPos = () => {
   context.beginPath();
