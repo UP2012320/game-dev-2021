@@ -84,8 +84,12 @@ function resizeCanvas() {
 
 function mouseMoved(e) {
   // position of the pointer within the canvas
-  pointer.x = (e.pageX - canvas.offsetLeft);
-  pointer.y = (e.pageY - canvas.offsetTop);
+  pointer.x = (
+      e.pageX - canvas.offsetLeft
+  );
+  pointer.y = (
+      e.pageY - canvas.offsetTop
+  );
 
   // position of the pointer relative to the centre of the canvas
   pointer.xOffset = pointer.x - halfWidth;
@@ -103,6 +107,14 @@ function mouseMoved(e) {
       ) / limitOfAcceleration * step;
 
   pointer.angle = Math.atan2(pointer.yOffset, pointer.xOffset).toFixed(3);
+  pointer.degrees = Math.abs(Math.round(pointer.angle *
+      (
+          180 / Math.PI
+      )));
+
+  if (pointer.degrees > 360) {
+    pointer.degrees = 360;
+  }
 
   redraw();
 }
@@ -117,7 +129,11 @@ function handleKeys(e) {
     window.leaderboard.classList.toggle('hidden');
   }
   if (e.code === 'KeyP') {
-    window.player.classList.toggle('hidden');
+
+    // Make sure target isn't the nick input
+    if (e.target !== window.nick) {
+      window.player.classList.toggle('hidden');
+    }
   }
 
   if (e.target === window.nick) {
