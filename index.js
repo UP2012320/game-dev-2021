@@ -16,7 +16,7 @@ function init() {
 // Here you should add any other
 // code, functions, etc.
 
-// For test 7
+// For test 6
 
 let colourIndex = 0;
 
