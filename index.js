@@ -4,7 +4,7 @@
 
 function init() {
   canvas.addEventListener('click', () => {
-    colourIndex = colourIndex === 3 ? 0 : colourIndex + 1;
+    colourIndex = colourIndex === colours.length - 1 ? 0 : colourIndex + 1;
   });
 
   const nickInput = document.querySelector('#nick');
@@ -59,6 +59,7 @@ function leaders(max) {
 
   const top10 = document.querySelectorAll('#top10 > li');
 
+  // Slice to only take 10, shouldn't need to since we check when building the list but good to check
   return [...top10]
       .map(row => row.textContent)
       .slice(0, max);
