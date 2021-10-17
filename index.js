@@ -79,7 +79,7 @@ function leaders(max) {
 
   const top10 = document.querySelectorAll('#top10 > li');
 
-  // Slice to only take 10, shouldn't need to since we check when building the list but good to check
+  // Slice to only take max
   return [...top10]
       .map(row => row.textContent)
       .slice(0, max);
