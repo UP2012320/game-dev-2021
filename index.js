@@ -30,7 +30,9 @@ function updateLeaderBoard(names, me) {
   const top10 = document.querySelector('#top10');
 
   // Clear top10 element's children
-  top10.textContent = '';
+  while (top10.firstChild) {
+    top10.firstChild.remove();
+  }
 
   // Iterate over name and append an li for each one
   names.forEach((name, i) => {
